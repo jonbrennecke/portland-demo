@@ -1,0 +1,50 @@
+doctype html
+html
+	head
+		link(href="css/stylesheets/main.css" type="text/css" rel="stylesheet")
+		script#jquery(src="bower_components/jquery/dist/jquery.min.js")
+		script(src="bower_components/threejs/build/three.min.js")
+		script(src="scripts/effects.js")
+		script(src="scripts/trackballcontrols.js")
+		script(src="scripts/main.js")
+	body
+		.page-wrap
+			.page
+				#canvas-wrap
+					//- webgl canvas placed here
+				.textbox-wrap
+					.blurred
+						//- 2d blurred canvas placed here
+					.textbox
+						h1.fa.fa-times#hide-text
+						h1.fa.fa-map-marker
+						h1 Hello, Portland.
+						p
+							| I'm moving to Portland soon, and I'd like to connect with other developers and designers.
+							| &nbsp;Do you represent a business in Portland? &nbsp;Are you looking for a talented front end engineer? 
+							| &nbsp;I'd love to get in touch. 
+						p
+							| Shoot me an email for a copy of my resume. &nbsp;I look forward to hearing from you.
+
+						.social-links
+							a.fa.fa-github-alt(href="http://github.com/jonbrennecke" target="_blank")
+							a.fa.fa-codepen(href="http://codepen.io/jonbrennecke" target="_blank")
+							a.fa.fa-envelope-o(href="mailto:jpbrennecke@gmail.com" target="_blank")
+							a.fa.fa-twitter(href="http://twitter.com/jonbrennecke" target="_blank")
+
+		//- GLSL shaders
+		.shaders
+			script#addblend(type="x-shader/x-vertex")
+				include ../shaders/addblend.fs
+			script#basic(type="x-shader/x-vertex")
+				include ../shaders/basic.vs
+			script#hblur(type="x-shader/x-fragment")
+				include ../shaders/hblur.fs
+			script#vblur(type="x-shader/x-fragment")
+				include ../shaders/vblur.fs
+			script#depth(type="x-shader/x-fragment")
+				include ../shaders/depth.fs
+			script#mapvs(type="x-shader/x-vertex")
+				include ../shaders/map.vs
+			script#mapfs(type="x-shader/x-fragment")
+				include ../shaders/map.fs
